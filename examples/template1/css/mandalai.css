@@ -1,0 +1,190 @@
+@media screen and (max-width: 500px) {
+
+    /**/
+    /** FONTS font-family: 'Michroma', serif; */
+    h1,
+    h2 {
+        display: none;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .onlytablet {
+        display: none;
+    }
+
+    .onlydesktop,
+    .onlydesktopblock {
+        display: none !important;
+    }
+
+    .onlymobile {
+        display: inline-block;
+    }
+
+    .onlymobileblock {
+        display: block !important;
+    }
+
+    .onlymobiletxt {
+        display: none;
+    }
+
+    ul {
+        list-style-type: none;
+        text-decoration: none;
+    }
+
+
+    button:active,
+    button:focus,
+    div:active,
+    div:focus,
+    a:active,
+    a:focus {
+        outline: 0;
+    }
+
+    body,
+    html {
+        overflow-x: hidden !important;
+    }
+
+
+    .mobilemargins {
+        width: 100% !important;
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+
+    .nomargins {
+        width: 100% !important;
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+
+    .nopaddingsdesktop {
+
+
+        padding-right: 5% !important;
+        ;
+        padding-left: 5% !important;
+        ;
+
+
+    }
+
+
+    #footerrrsspie .iconos {
+        float: right;
+    }
+
+    #footerrrsspie .iconos img {
+        width: 100%;
+        max-width: 55px;
+    }
+
+    #footerrrsspie .textos {
+        float: left;
+    }
+
+    #footerrrsspie .textos .titu {
+        font-size: 26px;
+        line-height: 24px;
+        font-family: 'Michroma', serif;
+        font-weight: 700;
+    }
+
+    #footerrrsspie .textos .subtitu {
+        font-size: 20px;
+    }
+
+    .no-padding-mobile {
+        padding: 0px 1vw !important;
+    }
+
+    .navegacionfinal {
+        margin-top: 50px;
+        margin-bottom: 150px;
+    }
+
+    .btnanterior {
+        border: 1px solid #EEEEEE;
+        height: 23vw;
+        width: 100%;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 3vh;
+        color: #979797;
+        background-color: white;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url(../images/blanco.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        cursor: pointer;
+        float: left;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .btnanterior:hover {
+        background-image: url(../images/fondovideo1.jpg);
+        color: white;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        text-decoration: none;
+    }
+
+    .btnsiguiente {
+        border: 1px solid #EEEEEE;
+        height: 23vw;
+        width: 100%;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 3vh;
+        color: #979797;
+        background-color: white;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url(../images/blanco.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        cursor: pointer;
+        float: left;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        float: right;
+    }
+
+    .btnsiguiente:hover {
+        background-image: url(../images/fondovideo2.png);
+        text-decoration: none;
+        color: white;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+
+}
+
+
+
+@media screen and (min-width:501px) {}

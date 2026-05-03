@@ -1,0 +1,72 @@
+---
+import { ReelPlayer } from '@landingreel/ui';
+import { CampaignExpired } from '@landingreel/ui';
+import { createSupabaseClient } from '../lib/supabase-server';
+
+import { getMockShots } from '../lib/mockData';
+import '../styles/global.css';
+
+const { id } = Astro.params;
+const supabase = createSupabaseClient(Astro.cookies);
+
+const now = Date.now();
+const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
+
+// Default fallback mock data
+let dbRow = {
+	is_premium: id !== 'free-expired' && id !== 'free-active',
+	published_at: id === 'free-expired' ? now - (THIRTY_DAYS + 1000) : now - 1000,
+	content_data: getMockShots(),
+};
+
+// If valid ID, fetch from DB
+if (id && id !== 'draft') {
+	const { data, error } = await supabase
+		.from('landing_reels')
+		.select('*')
+		.eq('id', id)
+		.single();
+	if (data) {
+		dbRow = {
+			is_premium: data.is_premium,
+			published_at: new Date(
+				data.published_at || data.created_at || now,
+			).getTime(),
+			content_data: data.content_data,
+		};
+	}
+}
+
+const isExpired =
+	!dbRow.is_premium && Date.now() - dbRow.published_at > THIRTY_DAYS;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/favicon.svg"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+		/>
+		<title>LandingReel Viewer | {id}</title>
+	</head><body
+		class="bg-black m-0 p-0 overflow-hidden w-full h-dvh flex flex-col items-center justify-center"
+	>
+		{
+			isExpired ? (
+				<CampaignExpired />
+			) : (
+				<ReelPlayer
+					client:load
+					shots={dbRow.content_data}
+					isPremium={dbRow.is_premium}
+				/>
+			)
+		}
+	</body>
+</html>

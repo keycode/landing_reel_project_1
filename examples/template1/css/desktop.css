@@ -1,0 +1,74 @@
+body {
+
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-image: url(../images/fondodesktop.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+
+    background-repeat: no-repeat;
+
+
+    background-attachment: fixed;
+
+}
+
+
+
+@media screen and (max-width: 767px) {}
+
+#desktop_logotop {
+    position: absolute;
+    top: 3dvh;
+    left: 2vw;
+
+
+}
+
+#desktop_arboles {
+    position: absolute;
+    bottom: 0dvh;
+    left: 2vw;
+
+
+}
+
+#desktop_buttons {
+    position: absolute;
+    top: 48dvh;
+    right: 12vw;
+
+}
+
+#desktop_leftbar {
+    position: absolute;
+    top: 10dvh;
+    left: 0dvh;
+    width: 36vw;
+    height: 87dvh;
+}
+
+#desktop_leftbar img {
+    width: 100%;
+}
+
+#desktop_topbar {
+    position: absolute;
+    top: 0dvh;
+    left: 0vw;
+    width: 100vw;
+    height: 10dvh;
+    background-color: #000000;
+}
+
+#desktop_button_up,
+#desktop_button_down {
+    margin: 1vw;
+}
+
+#desktop_button_up img,
+#desktop_button_down img {
+    width: 3vw;
+}

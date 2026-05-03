@@ -1,0 +1,742 @@
+body {
+
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+
+
+.landindreel-desktop {
+    position: absolute;
+
+    left: 0px;
+    top: 0px;
+
+    width: 100%;
+    height: 100dvh;
+}
+
+.landindreel-container {
+
+    position: relative;
+    right: -10vw;
+    top: 6dvh;
+    width: 40vw;
+    max-width: 500px;
+    height: 90dvh;
+    max-height: 90dvh;
+    border: 0px;
+    border-radius: 50px 50px 0px 0px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: transparent;
+    margin: 0px auto;
+
+}
+
+.landindreel-desktop iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    border: none;
+
+}
+
+.landindreel-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    border: none;
+
+}
+
+
+
+.landindreel-container iframe {
+    position: relative;
+    z-index: 1;
+}
+
+
+@media screen and (max-width: 767px) {
+    .landindreel-desktop {
+        display: none !important;
+
+    }
+
+
+    .landindreel-container {
+
+        position: absolute;
+
+        left: 0px;
+        top: 0px;
+
+        width: 100%;
+        height: 100dvh;
+        max-height: 100dvh;
+        border: none;
+        border-radius: 0px;
+        box-shadow: none;
+        overflow: inherit;
+
+        background-color: #111;
+
+        margin: 0px
+    }
+}
+
+
+.landindreel-desktop {
+    position: absolute;
+
+    left: 0px;
+    top: 0px;
+    background-color: #000000;
+    width: 100%;
+    height: 100dvh;
+}
+
+/* Estilos globales para pantalla completa y sin scrollbar */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    height: 100%;
+
+}
+
+button {
+    padding-inline: 1px;
+}
+
+
+
+.container {
+    max-width: inherit;
+}
+
+
+
+
+/* Contenedor principal de Embla (el viewport vertical) */
+.landingreel {
+    overflow-y: hidden;
+    height: 100vh;
+    /* Ocupa la altura completa del viewport */
+    width: 100vw;
+    /* Ocupa el ancho completo */
+    position: relative;
+
+
+    margin: 0 auto;
+    z-index: 999;
+}
+
+/* Contenedor de los slides (flex column para vertical) */
+.landingreel__container {
+    display: flex;
+    flex-direction: column;
+    /* Apila los slides verticalmente */
+    height: 100%;
+    /* Ocupa el 100% de la altura del .landingreel */
+}
+
+/* Estilo de cada slide principal */
+.landingreel__slide {
+    flex: 0 0 100%;
+    /* Cada slide ocupa el 100% de la altura del contenedor */
+    min-height: 0;
+    /* Importante para flexbox */
+    width: 100%;
+
+    background-color: transparent;
+    /* Fondo negro para los slides */
+    overflow: hidden;
+    /* Asegura que el contenido no se desborde */
+    /* Estado inicial para las animaciones de zoom */
+    opacity: 1;
+
+}
+
+/* La primera slide visible al inicio debe tener opacidad y escala normal */
+.landingreel__slide:first-child {
+    opacity: 1;
+
+}
+
+
+.landingreel__flexcenter {
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+
+
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.landingreel__col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Estilos específicos para el video (Slide 2) */
+.landingreel__slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Cubre el área del slide sin distorsionar */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Overlay de la UI del video (para texto, iconos, etc.) */
+.video-ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    /* Permite clicks pasar a elementos debajo por defecto */
+}
+
+/* Habilitar clicks solo en elementos interactivos */
+.video-ui-overlay .action-item,
+.video-ui-overlay .follow-button,
+.video-ui-overlay .sound-toggle {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.video-info-left {
+    align-self: flex-start;
+    max-width: 70%;
+}
+
+.video-info-left .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.video-info-left .user-avatar {
+    width: 2.5rem;
+    /* 40px */
+    height: 2.5rem;
+    /* 40px */
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    /* 8px */
+    border: 1px solid white;
+}
+
+.video-info-left .username {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    /* 8px */
+}
+
+.video-info-left .follow-button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    /* 4px 8px */
+    border-radius: 0.25rem;
+    /* 4px */
+    font-size: 0.8em;
+}
+
+.video-info-left .description,
+.video-info-left .music-info {
+    font-size: 0.9em;
+    margin-top: 0.25rem;
+    /* 4px */
+}
+
+.video-info-left .music-info i {
+    margin-right: 0.25rem;
+    /* 4px */
+}
+
+.video-actions-right {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    /* 20px */
+    font-size: 1.5rem;
+    /* 24px */
+    text-align: center;
+}
+
+.video-actions-right .action-item span {
+    display: block;
+    font-size: 0.5em;
+    margin-top: 0.25rem;
+    /* 4px */
+}
+
+.video-actions-right .music-thumbnail {
+    width: 2.5rem;
+    /* 40px */
+    height: 2.5rem;
+    /* 40px */
+    border-radius: 0.25rem;
+    /* 4px */
+    border: 2px solid white;
+    animation: rotate 3s linear infinite;
+    /* Animación de rotación */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilos para el carrusel horizontal anidado (Slide 3) */
+.landingreel-nested {
+    overflow: hidden;
+    width: 80vw;
+    /* Ancho del carrusel anidado */
+    height: 60vh;
+    /* Altura del carrusel anidado */
+    border-radius: 0.75rem;
+    /* 12px */
+
+}
+
+.landingreel-nested__container {
+    display: flex;
+    flex-direction: row;
+    /* Horizontal */
+    height: 100%;
+}
+
+.landingreel-nested__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landingreel-nested__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    /* 12px */
+}
+
+.landindreel-footer {
+    position: fixed;
+    display: flex;
+    width: 65vw;
+    margin-left: 15vw;
+    margin-bottom: 10px;
+    border: 0px;
+    bottom: 00px;
+    right: 0px;
+    height: 7dvh;
+    z-index: 99;
+    background-color: #84FA4D;
+    border-radius: 40px 0px 0px 40px;
+    align-content: center;
+    align-items: center;
+    z-index: 999999;
+    border: 1px solid #84FA4D;
+}
+
+.landindreel-footerdark {
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.landindreel-headerfixed {
+    display: none;
+    position: fixed;
+    width: 100%;
+    padding: 15px;
+    border: 0px;
+    top: 00px;
+    left: 0px;
+    height: 90px;
+    z-index: 999;
+    background-color: transparent;
+
+
+}
+
+.landindreel-footer-logo {
+
+    position: absolute;
+    left: 14px;
+    bottom: 2px;
+}
+
+#workflow_desktop {
+    display: none;
+
+}
+
+#workflow_mobile {
+    display: block;
+    margin: 10vw auto;
+    width: 65vw;
+    height: 50dvh;
+    padding-top: 19dvh;
+    /* margin-bottom: 10dvh; */
+    height: 60dvh;
+    margin-bottom: 15dvh;
+}
+
+.slideworkflow_iconos {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+.slideworkflow_iconos img {
+    margin-right: 5px;
+}
+
+.slideworkflow_titulo {
+
+    color: #000000;
+    background: transparent;
+
+    font-size: 6vw;
+    text-align: left;
+    width: 60vw;
+    font-weight: 700;
+}
+
+.slideworkflow_texto {
+
+
+    color: #000000;
+    background: transparent;
+
+    font-size: 5vw;
+    text-align: left;
+
+
+}
+
+#ctamain {
+    position: fixed;
+    left: 22vw;
+    width: 55vw;
+    border: 0px;
+    bottom: -100px;
+    /* Comienza oculto abajo */
+    /* transform: translateY(-12%); */
+    display: flex;
+    flex-direction: column;
+    background: #011C58;
+    color: #FFF;
+    text-align: center;
+    font-family: "LEGO Typewell";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 5vw;
+    padding: 10px;
+    margin: 31px auto;
+
+}
+
+#ctamain a {
+    background: #011C58;
+    color: #FFF;
+    text-decoration: none;
+}
+
+#ctamain.visible {
+    bottom: 0;
+    /* Posición visible */
+}
+
+/* Dots de navegación principal (vertical) */
+.landingreel-dots {
+    outline: none !important;
+    position: absolute;
+    right: 2px;
+    border: 0px;
+    bottom: 10dvh;
+    /* transform: translateY(-12%); */
+    display: flex;
+    flex-direction: column;
+    gap: 1dvh;
+    z-index: 10;
+    height: 87dvh;
+    z-index: 9999;
+    align-items: flex-end;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.landingreel-dot {
+    outline: none !important;
+    width: 1px;
+    /* Ancho de 1px */
+    height: 100%;
+    /* Alto de 30px */
+    background-color: #444444;
+    border-radius: 0;
+    /* Sin bordes redondeados, para que sea rectangular */
+    border: none;
+    /* Asegura que no haya borde */
+    cursor: pointer;
+
+    border-radius: 80px 0px 0px 80px;
+    transition: background-color 0.3s, transform 0.3s;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+
+    padding-left: 1px;
+}
+
+.landingreel-dot .landingreel-dot-ancla {
+    opacity: 1;
+    color: #000000;
+    padding: 0px 0px 0px 2px;
+}
+
+.landingreel-dot.is-selected {
+    background-color: #999999;
+    width: 3px;
+
+}
+
+
+.landingreel-dots .darkline {
+    background-color: rgba(40, 40, 40, 1);
+
+}
+
+.landingreel-dot.is-selected .darkline {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+
+
+/* Botón CTA fijo */
+.cta-button {
+    position: fixed;
+    bottom: 1.5rem;
+    /* 24px */
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* Asegura que esté por encima de todo */
+}
+
+.cta-button:hover {
+    background-color: #0c85d0;
+
+}
+
+/* Estilos para el texto de la slide 1 */
+.slide1-content {
+    text-align: center;
+
+    /* 32px */
+    background-color: rgba(0, 0, 0, 0.6);
+
+    /* 16px */
+    max-width: 100%;
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    height: 100dvh;
+}
+
+.slide1-content h2 {
+    font-size: 1.875rem;
+    /* 30px */
+    font-weight: bold;
+    margin-bottom: 1rem;
+    /* 16px */
+}
+
+.slide1-content p {
+    font-size: 1.125rem;
+    /* 18px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+}
+
+.slide1-content input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5rem;
+    /* 8px */
+    padding: 0.75rem 1rem;
+    /* 12px 16px */
+    color: white;
+    font-size: 1.125rem;
+    /* 18px */
+    width: 100%;
+    max-width: 300px;
+    margin-top: 1rem;
+    /* 16px */
+}
+
+.slide1-content input:focus {
+    outline: none;
+    border-color: #1da1f2;
+    box-shadow: 0 0 0 3px rgba(29, 161, 242, 0.5);
+}
+
+/* Estilos para el texto de la slide 4 */
+.slide4-content {
+    text-align: center;
+    padding: 2rem;
+    /* 32px */
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1rem;
+    /* 16px */
+    max-width: 90%;
+}
+
+.slide4-content h2 {
+    font-size: 1.875rem;
+    /* 30px */
+    font-weight: bold;
+    margin-bottom: 1rem;
+    /* 16px */
+}
+
+.slide4-content p {
+    font-size: 1.125rem;
+    /* 18px */
+}
+
+
+
+#ctaPopup {
+    position: fixed;
+    bottom: -100px;
+    /* Comienza oculto abajo */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    transition: bottom 0.5s ease-in-out;
+    /* Animación CSS3 */
+    z-index: 1000;
+    text-align: center;
+}
+
+#ctaPopup.visible {
+    bottom: 0;
+    /* Posición visible */
+}
+
+
+.landingreel__slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Cubre el área del slide sin distorsionar */
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+
+
+
+
+@media screen and (min-width:501px) {
+
+    .landindreel-container {
+
+        position: relative;
+        right: 0vw;
+        top: 0dvh;
+        width: 100vw;
+        padding: 0px;
+        min-width: 520px;
+        max-width: 100%;
+        height: 100dvh;
+        max-height: 100dvh;
+        border: 0px;
+        border-radius: 50px 50px 0px 0px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background-color: transparent;
+        margin: 0px auto;
+
+    }
+
+    .landindreel-headerfixed {
+
+        position: fixed;
+        width: 100%;
+        padding: 5dvh;
+        border: 0px;
+        top: 0px;
+        left: 0vw;
+        height: 16dvh;
+        z-index: 999;
+        background-color: transparent
+    }
+
+    #workflow_desktop {
+
+        display: block;
+        margin: 10vw auto;
+        width: 1274px;
+    }
+
+    #workflow_mobile {
+        display: none;
+    }
+
+
+}
